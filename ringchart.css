@@ -1,0 +1,250 @@
+@charset "UTF-8";
+.donut {
+  border: 1px solid darkgrey;
+  --donut-size: 300px;
+  --donut-border-width: 70px;
+  --donut-spacing: 0;
+  --donut-spacing-color: 255, 255, 255;
+  --donut-spacing-deg: calc(1deg * var(--donut-spacing));
+  border-radius: 50%;
+  height: var(--donut-size);
+  margin: 10px;
+  position: relative;
+  width: var(--donut-size);
+}
+
+.donut__slice {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.donut__slice::before,
+.donut__slice::after {
+  border: var(--donut-border-width) solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: rotate(45deg);
+  width: 100%;
+}
+
+.donut__slice::before {
+  border-width: calc(var(--donut-border-width) + 1px);
+  box-shadow: 0 0 1px 0 rgba(var(--donut-spacing-color), calc(100 * var(--donut-spacing)));
+}
+
+.donut__slice__0 {
+  --0-start: 0;
+}
+
+.donut__slice__0::before {
+  border-top-color: rgba(var(--donut-spacing-color), calc(100 * var(--donut-spacing)));
+  transform: rotate(calc(360deg * var(--0-start) + 45deg));
+}
+
+.donut__slice__0::after {
+  border-top-color: #ff6838;
+  border-right-color: rgba(255, 104, 56, calc(100 * (var(--0) - .25)));
+  border-bottom-color: rgba(255, 104, 56, calc(100 * (var(--0) - .5)));
+  border-left-color: rgba(255, 104, 56, calc(100 * (var(--0) - .75)));
+  transform: rotate(calc(360deg * var(--0-start) + 45deg + var(--donut-spacing-deg)));
+}
+
+.text__slice__0 {
+  display: flex;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid lightgrey;
+}
+.text__slice__0 .circle {
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: #FF6838;
+  margin-right: 0.5em;
+}
+
+.donut__slice__1 {
+  --1-start: calc(var(--0));
+  --1-check: max(calc(var(--1-start) - .5), 0);
+  clip-path: inset(0 calc(50% * (var(--1-check) / var(--1-check))) 0 0);
+}
+
+.donut__slice__1::before {
+  border-top-color: rgba(var(--donut-spacing-color), calc(100 * var(--donut-spacing)));
+  transform: rotate(calc(360deg * var(--1-start) + 45deg));
+}
+
+.donut__slice__1::after {
+  border-top-color: #ffc820;
+  border-right-color: rgba(255, 200, 32, calc(100 * (var(--1) - .25)));
+  border-bottom-color: rgba(255, 200, 32, calc(100 * (var(--1) - .5)));
+  border-left-color: rgba(255, 200, 32, calc(100 * (var(--1) - .75)));
+  transform: rotate(calc(360deg * var(--1-start) + 45deg + var(--donut-spacing-deg)));
+}
+
+.text__slice__1 {
+  display: flex;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid lightgrey;
+}
+.text__slice__1 .circle {
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: #FFC820;
+  margin-right: 0.5em;
+}
+
+.donut__slice__2 {
+  --2-start: calc(var(--0) + var(--1));
+  --2-check: max(calc(var(--2-start) - .5), 0);
+  clip-path: inset(0 calc(50% * (var(--2-check) / var(--2-check))) 0 0);
+}
+
+.donut__slice__2::before {
+  border-top-color: rgba(var(--donut-spacing-color), calc(100 * var(--donut-spacing)));
+  transform: rotate(calc(360deg * var(--2-start) + 45deg));
+}
+
+.donut__slice__2::after {
+  border-top-color: #97c95c;
+  border-right-color: rgba(151, 201, 92, calc(100 * (var(--2) - .25)));
+  border-bottom-color: rgba(151, 201, 92, calc(100 * (var(--2) - .5)));
+  border-left-color: rgba(151, 201, 92, calc(100 * (var(--2) - .75)));
+  transform: rotate(calc(360deg * var(--2-start) + 45deg + var(--donut-spacing-deg)));
+}
+
+.text__slice__2 {
+  display: flex;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid lightgrey;
+}
+.text__slice__2 .circle {
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: #97C95C;
+  margin-right: 0.5em;
+}
+
+.donut__slice__3 {
+  --3-start: calc(var(--0) + var(--1) + var(--2));
+  --3-check: max(calc(var(--3-start) - .5), 0);
+  clip-path: inset(0 calc(50% * (var(--3-check) / var(--3-check))) 0 0);
+}
+
+.donut__slice__3::before {
+  border-top-color: rgba(var(--donut-spacing-color), calc(100 * var(--donut-spacing)));
+  transform: rotate(calc(360deg * var(--3-start) + 45deg));
+}
+
+.donut__slice__3::after {
+  border-top-color: #1cb2f6;
+  border-right-color: rgba(28, 178, 246, calc(100 * (var(--3) - .25)));
+  border-bottom-color: rgba(28, 178, 246, calc(100 * (var(--3) - .5)));
+  border-left-color: rgba(28, 178, 246, calc(100 * (var(--3) - .75)));
+  transform: rotate(calc(360deg * var(--3-start) + 45deg + var(--donut-spacing-deg)));
+}
+
+.text__slice__3 {
+  display: flex;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid lightgrey;
+}
+.text__slice__3 .circle {
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: #1CB2F6;
+  margin-right: 0.5em;
+}
+
+.donut__slice__4 {
+  --4-start: calc(var(--0) + var(--1) + var(--2) + var(--3));
+  --4-check: max(calc(var(--4-start) - .5), 0);
+  clip-path: inset(0 calc(50% * (var(--4-check) / var(--4-check))) 0 0);
+}
+
+.donut__slice__4::before {
+  border-top-color: rgba(var(--donut-spacing-color), calc(100 * var(--donut-spacing)));
+  transform: rotate(calc(360deg * var(--4-start) + 45deg));
+}
+
+.donut__slice__4::after {
+  border-top-color: #1685b8;
+  border-right-color: rgba(22, 133, 184, calc(100 * (var(--4) - .25)));
+  border-bottom-color: rgba(22, 133, 184, calc(100 * (var(--4) - .5)));
+  border-left-color: rgba(22, 133, 184, calc(100 * (var(--4) - .75)));
+  transform: rotate(calc(360deg * var(--4-start) + 45deg + var(--donut-spacing-deg)));
+}
+
+.text__slice__4 {
+  display: flex;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid lightgrey;
+}
+.text__slice__4 .circle {
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: #1685B8;
+  margin-right: 0.5em;
+}
+
+/* html,
+body {
+  height: 100%;
+} */
+
+/* body {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+
+.donut-container {
+  display: flex;
+  align-items: center;
+}
+.donut-container *, .donut-container *::after, .donut-container * {
+  box-sizing: border-box;
+}
+
+.legend {
+  font-family: sans-serif;
+  margin-left: 2em;
+  padding: 1em;
+}
+
+.trend {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.negative .trend:before {
+  content: "↓	";
+}
+
+.positive .trend:before {
+  content: "↑ +";
+}
+
+.positive .trend {
+  color: green;
+}
+
+.negative .trend {
+  color: red;
+}
+
+.insight-value {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
